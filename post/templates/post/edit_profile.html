@@ -1,0 +1,30 @@
+{% extends 'post/base.html' %}
+{% block content %}
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 offset-sm-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4><b>プロフィール更新</b></h4>
+                        </div>
+                        <div class="card-body">
+                            {# 画像ファイルをアップロードするためenctype="multipart/form-data"を指定#}
+                            <form action="{% url  'post:edit_profile' %}" method="post"
+                                    enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {% bootstrap_form form %}
+                                <button class='btn btn-outline-success btn-block' type="submit">更新</button>
+
+                            </form>
+                            <a class="nav-link" href="{% url 'post:mypost' %}">戻る</a>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </form>
+    </nav>
+{% endblock %}
